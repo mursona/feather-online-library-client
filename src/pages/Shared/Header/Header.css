@@ -1,0 +1,29 @@
+.text-dark-violet{
+    color: #521248;
+}
+.bg-dark-violet{
+    background-color: #521248;
+    color: #f1bee9;
+    border-radius: 5px;
+}
+.navbar{
+    background-color: #fce9f9dc;
+}
+.brandtext{
+    color: #54AA9E;
+    line-height: 1.2em;
+}
+.navlink:hover{
+    background-color: #f1bee9;
+    color: #521248;
+}
+.theme{
+    border: none;
+}
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
