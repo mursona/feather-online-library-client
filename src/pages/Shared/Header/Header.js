@@ -23,12 +23,12 @@ const Header = () => {
         <div>
             <Navbar expand="lg" className='mb-4 navbar'>
             <Container fluid>
-                <Navbar.Brand href="#" className='text-start fw-bold brandtext d-flex align-items-start justify-content-center'>
+                <Navbar.Brand className='text-start fw-bold brandtext d-flex align-items-start justify-content-center'>
                     <Image src={logo}></Image>
-                    <p className='mx-2 my-2'>
+                    <Link to='./' className='mx-2 my-2'>
                     <div>Feather</div>
                     <div>Online Library</div>
-                    </p>
+                    </Link>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
@@ -54,7 +54,7 @@ const Header = () => {
                     </>:
                     <>
                     <button className='mx-2 my-2 bg-dark-violet'><Link to='/login'>Login</Link></button>
-                    <button className='mx-2 my-2 bg-dark-violet'><Link to='/register'>Register</Link></button>
+                    <button className='mx-2 my-2 bg-dark-violet'><Link to='/register'>Sign Up</Link></button>
                     </>
                     }
 
