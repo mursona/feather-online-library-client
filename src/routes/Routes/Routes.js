@@ -16,7 +16,7 @@ export const routes = createBrowserRouter([
               loader: () => fetch(`https://learning-platform-server-side.vercel.app/research`)
             },
             {
-                path: '/field',
+                path: '/field/:id',
                 element: <Field></Field>,
                 loader: ({params}) => fetch(`https://learning-platform-server-side.vercel.app/field/${params.id}`)
             },

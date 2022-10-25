@@ -14,7 +14,7 @@ const RightSideNav = () => {
     }, [])
 
     return (
-<div className="wrapper">
+    <div className="wrapper">
         <nav id="sidebar">
             <div className="sidebar-header text-center d-flex">
                 <h5><FaSearchengin className='mx-2'></FaSearchengin>
