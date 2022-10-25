@@ -3,6 +3,8 @@ import Main from "../../layout/Main";
 import Home from "../../pages/Home/Home/Home";
 import Research from "../../pages/Research/Research/Research";
 import Field from "../../pages/Field/Field/Field";
+import Login from "../../pages/Login/Login/Login";
+import Register from "../../pages/Login/Register/Register";
 
 export const routes = createBrowserRouter([
 
@@ -24,7 +26,15 @@ export const routes = createBrowserRouter([
                 path: '/research/:id',
                 element: <Research></Research>,
                 loader: ({params}) =>fetch(`https://learning-platform-server-side.vercel.app/research/${params.id}`)
-            }
+            },
+            {
+                path: '/login',
+                element: <Login></Login>
+            },
+            {
+                path:'/register',
+                element: <Register></Register>
+            },
         ]
     }
 

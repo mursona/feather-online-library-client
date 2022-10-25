@@ -1,15 +1,24 @@
-import React from 'react';
-import Button from 'react-bootstrap/Button';
-import { Image } from 'react-bootstrap';
+import React, { useContext } from 'react';
+import { Button, Image } from 'react-bootstrap';
 import logo from '../../../assets/Logo/logo.png'
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import RightSideNav from '../RightSideNav/RightSideNav';
 import './Header.css';
 
 const Header = () => {
+
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
+
     return (
         <div>
             <Navbar expand="lg" className='mb-4 navbar'>
@@ -36,8 +45,20 @@ const Header = () => {
                     </div>
                 </Nav>
                 <Nav>
-                    <button className='mx-2 my-2 bg-dark-violet'>LogIn</button>
-                    <button className='mx-2 my-2 bg-dark-violet'>Signup</button>
+                <>
+                    {
+                    user?.uid ?
+                    <>
+                        <span>{user?.displayName}</span>
+                        <Button className='mx-2 my-2 bg-dark-violet'  variant="light" onClick={handleLogOut}>Log out</Button>
+                    </>:
+                    <>
+                    <button className='mx-2 my-2 bg-dark-violet'><Link to='/login'>Login</Link></button>
+                    <button className='mx-2 my-2 bg-dark-violet'><Link to='/register'>Register</Link></button>
+                    </>
+                    }
+
+                </>
                 </Nav>
                 </Navbar.Collapse>
             </Container>

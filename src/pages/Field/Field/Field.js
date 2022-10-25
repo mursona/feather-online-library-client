@@ -7,11 +7,12 @@ const Field = () => {
     return (
         <div>
             {
-                categoryResearch.map(research => <ResearchSummaryCard 
+                categoryResearch.map(research =>
+                <ResearchSummaryCard 
                     key={research._id}
                     research={research}
                     >
-                    </ResearchSummaryCard>)
+                </ResearchSummaryCard>)
             }
         </div>
     );
