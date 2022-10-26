@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Button, Image } from 'react-bootstrap';
 import logo from '../../../assets/Logo/logo.png'
 import Container from 'react-bootstrap/Container';
@@ -11,7 +11,19 @@ import './Header.css';
 
 const Header = () => {
 
+    const [theme, setTheme] = useState('light');
     const { user, logOut } = useContext(AuthContext);
+
+    const toggleTheme = () => {
+        if (theme === 'light') {
+          setTheme('dark');
+        } else {
+          setTheme('light');
+        }
+      };
+      useEffect(() => {
+        document.body.className = theme;
+      }, [theme]);
 
     const handleLogOut = () => {
         logOut()
@@ -39,9 +51,8 @@ const Header = () => {
                 >
                     <Link to='/' className='brandtext navlink mx-2 px-2 py-2'>FAQ</Link>
                     <Link to='/' className='brandtext navlink mx-2 px-2 py-2'>Blog</Link>
-                    <div className='d-flex'>
-                    <button className='mx-2 my-2 bg-dark text-white theme'>Dark</button>
-                    <button className='mx-2 my-2 bg-white theme'>Light</button>
+                    <div className={`Header ${theme} bg-light border rounded-2`}>
+                      <Button onClick={toggleTheme} className='btn btn-light border border-2'>Theme</Button>
                     </div>
                 </Nav>
                 <Nav>

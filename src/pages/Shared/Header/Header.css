@@ -10,6 +10,16 @@
     height: 50px;
     width: 50px;
 }
+
+.dark {
+    background-color: rgb(0, 0, 0);
+    color: #333;
+  }
+  .light {
+    background-color: #fff;
+    color: #333;
+  }
+  
 .navbar{
     background-color: #fce9f9dc;
 }
