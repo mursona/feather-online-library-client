@@ -1,18 +1,41 @@
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
+import { GoogleAuthProvider } from 'firebase/auth';
 import './Login.css';
 
 const Login = () => {
 
+  const googleProvider = new GoogleAuthProvider()
+
   const [error, setError] = useState('');
-  const { signIn, setLoading } = useContext(AuthContext);
+  const { signIn, setLoading, providerLogin } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
   const from = location.state?.from?.pathname || '/';
+
+
+  const handleGoogleSignIn = () => {
+    providerLogin(googleProvider)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+            setError('');
+            if(user){
+              navigate(from, {replace: true});
+          }
+          else{
+              toast.error('Please Log In With Google.')
+          }
+        })
+        .catch(error => {
+          console.error(error)
+          setError(error.message);
+      })
+}
 
   const handleSubmit = event => {
       event.preventDefault();
@@ -51,9 +74,9 @@ const Login = () => {
               <div className="top-border border border-3"></div>
               <Card className="shadow card-bg">
                 <Card.Body>
-                  <div className="mb-3 mt-md-4">
+                  <div className="mb-3 mt-md-2">
                     <h2 className="fw-bold mb-2 text-uppercase btn-text">FOLibrary</h2>
-                    <p className=" mb-5">Please enter your login and password!</p>
+                    <p className=" mb-4">Please enter your login and password!</p>
                     <div className="mb-3">
                       <Form onSubmit={handleSubmit}>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -85,6 +108,8 @@ const Login = () => {
                             Login
                           </Button>
                         </div>
+                        <Button onClick={handleGoogleSignIn} className='my-2 px-5' variant='outline-success'>Log In With Google</Button>
+                        <Button className='my-2 px-5' variant='outline-success'>Log In With Github</Button>
                         <Form.Text className="text-danger">
                             {error}
                         </Form.Text>
@@ -92,9 +117,9 @@ const Login = () => {
                       <div className="mt-3">
                         <p className="mb-0  text-center">
                           Don't have an account?{" "}
-                          <a href="{''}" className="btn-text fw-bold">
+                          <Link to='/register' className="btn-text fw-bold">
                             Sign Up
-                          </a>
+                          </Link>
                         </p>
                       </div>
                     </div>

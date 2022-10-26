@@ -62,7 +62,7 @@ const Header = () => {
                     <>  
                         <Link to='/profile' className='mx-4 fw-semibold'>
                             {user?.displayName}
-                            <Image className='rounded-circle profile-img' src={user?.photoURL}></Image>
+                            <Image className='mx-2 rounded-circle profile-img' src={user?.photoURL}></Image>
                         </Link>
                         <Button className='mx-2 py-0 my-0 bg-dark-violet'  variant="light" onClick={handleLogOut}>Log out</Button>
                     </>:
