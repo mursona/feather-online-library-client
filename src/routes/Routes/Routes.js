@@ -8,6 +8,7 @@ import Register from "../../pages/Login/Register/Register";
 import TermsAndCondition from "../../pages/TermsAndCondition/TermsAndCondition";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import UserProfile from "../../pages/UserProfile/UserProfile/UserProfile";
+import Faq from "../../pages/FAQ/Faq";
 
 export const routes = createBrowserRouter([
 
@@ -45,7 +46,12 @@ export const routes = createBrowserRouter([
             {
                 path: '/profile',
                 element: <PrivateRoute><UserProfile></UserProfile></PrivateRoute>
+            },
+            {
+                path: '/faq',
+                element: <Faq></Faq>
             }
+
         ]
     }
 
