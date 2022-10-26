@@ -1,0 +1,31 @@
+.blog-bg{
+    background-color: #fce8fa;
+}
+.blog{
+    background-color: #54AA9E;
+}
+.num{
+    background-color: #521248;
+    color: white;
+}
+.blog-text{
+    color: #54AA9E;
+}
+    h3{
+    text-transform: capitalize;
+    }
+    .badge{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    padding: 12px 15px;
+    border-radius: 0 0 0 26px;
+    font-size: 14px;
+    }
+    .card{
+    border:0px;
+    height: 100%;
+    }
+    .card-title{
+    font-weight: bold;
+    }

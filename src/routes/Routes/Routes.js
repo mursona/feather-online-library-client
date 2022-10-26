@@ -9,6 +9,7 @@ import TermsAndCondition from "../../pages/TermsAndCondition/TermsAndCondition";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import UserProfile from "../../pages/UserProfile/UserProfile/UserProfile";
 import Faq from "../../pages/FAQ/Faq";
+import Blog from "../../pages/Blog/Blog";
 
 export const routes = createBrowserRouter([
 
@@ -50,6 +51,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/faq',
                 element: <Faq></Faq>
+            },
+            {
+                path: '/blog',
+                element: <Blog></Blog>
             }
 
         ]

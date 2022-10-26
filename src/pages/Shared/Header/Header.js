@@ -50,7 +50,7 @@ const Header = () => {
                     navbarScroll
                 >
                     <Link to='/faq' className='brandtext navlink mx-2 px-2 py-2'>FAQ</Link>
-                    <Link to='/' className='brandtext navlink mx-2 px-2 py-2'>Blog</Link>
+                    <Link to='/blog' className='brandtext navlink mx-2 px-2 py-2'>Blog</Link>
                     <div className={`Header ${theme} bg-light border rounded-2`}>
                       <Button onClick={toggleTheme} className='btn btn-light border border-2'>Theme</Button>
                     </div>
