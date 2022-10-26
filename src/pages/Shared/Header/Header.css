@@ -6,6 +6,10 @@
     color: #f1bee9;
     border-radius: 5px;
 }
+.profile-img{
+    height: 50px;
+    width: 50px;
+}
 .navbar{
     background-color: #fce9f9dc;
 }
