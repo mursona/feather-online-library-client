@@ -30,7 +30,9 @@ const ResearchSummaryCard = ({research}) => {
                 <Card.Text>
                     {
                         details.length > 250 ?
-                            <>{details.slice(0, 250) + '...'} <Link to={`/research/${_id}`} className='see-more fw-bold'>Read More</Link> </>
+                            <>
+                            {details.slice(0, 250) + '...'} <Link to={`/research/${_id}`} className='see-more fw-bold'>Read More</Link> 
+                            </>
                             :
                             details
                     }

@@ -48,9 +48,9 @@ const Header = () => {
                 <>
                     {
                     user?.uid ?
-                    <>
-                        <span>{user?.displayName}</span>
-                        <Button className='mx-2 my-2 bg-dark-violet'  variant="light" onClick={handleLogOut}>Log out</Button>
+                    <>  
+                        <p className='mx-2 pt-2 fw-semibold'>{user?.displayName}</p>
+                        <Button className='mx-2 py-0 my-0 bg-dark-violet'  variant="light" onClick={handleLogOut}>Log out</Button>
                     </>:
                     <>
                     <button className='mx-2 my-2 bg-dark-violet'><Link to='/login'>Login</Link></button>

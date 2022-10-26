@@ -5,6 +5,8 @@ import Research from "../../pages/Research/Research/Research";
 import Field from "../../pages/Field/Field/Field";
 import Login from "../../pages/Login/Login/Login";
 import Register from "../../pages/Login/Register/Register";
+import TermsAndCondition from "../../pages/TermsAndCondition/TermsAndCondition";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const routes = createBrowserRouter([
 
@@ -19,7 +21,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/field/:id',
-                element: <Field></Field>,
+                element: <PrivateRoute><Field></Field></PrivateRoute>,
                 loader: ({params}) => fetch(`https://learning-platform-server-side.vercel.app/field/${params.id}`)
             },
             {
@@ -35,6 +37,10 @@ export const routes = createBrowserRouter([
                 path:'/register',
                 element: <Register></Register>
             },
+            {
+                path: '/terms',
+                element: <TermsAndCondition></TermsAndCondition>
+            }
         ]
     }
 
