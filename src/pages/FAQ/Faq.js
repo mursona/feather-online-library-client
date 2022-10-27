@@ -4,7 +4,7 @@ import './Faq.css'
 
 const Faq = () => {
     return (
-        <Accordion className='my-4'>
+        <Accordion className='my-4 text-start'>
         <h3 className='faq-h3'>Frequently Asked Questions</h3>
         <Accordion.Item className='my-4' eventKey="0">
           <Accordion.Header>Why can't I get full text access to a journal?</Accordion.Header>

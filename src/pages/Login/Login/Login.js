@@ -8,10 +8,10 @@ import './Login.css';
 
 const Login = () => {
 
-  const googleProvider = new GoogleAuthProvider()
+  const googleProvider = new GoogleAuthProvider();
 
   const [error, setError] = useState('');
-  const { signIn, setLoading, providerLogin } = useContext(AuthContext);
+  const { setUser, signIn, setLoading, providerLogin, signInWithGithub } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -24,17 +24,26 @@ const Login = () => {
             const user = result.user;
             console.log(user);
             setError('');
-            if(user){
-              navigate(from, {replace: true});
-          }
-          else{
-              toast.error('Please Log In With Google.')
-          }
+            navigate(from,{replace:true})
         })
         .catch(error => {
           console.error(error)
           setError(error.message);
       })
+}
+
+const handleGithubSignIn=()=>{
+  signInWithGithub()
+  .then(result=>{
+    const user = result.user;
+    setUser(user);
+    navigate(from,{replace:true})
+})
+
+  .catch(error => {
+    console.error(error)
+    setError(error.message);
+})
 }
 
   const handleSubmit = event => {
@@ -98,9 +107,7 @@ const Login = () => {
                           controlId="formBasicCheckbox"
                         >
                           <p className="small">
-                            <a className="btn-text" href="#!">
-                              Forgot password?
-                            </a>
+                              <u>Forgot password?</u>
                           </p>
                         </Form.Group>
                         <div className="d-grid">
@@ -109,7 +116,7 @@ const Login = () => {
                           </Button>
                         </div>
                         <Button onClick={handleGoogleSignIn} className='my-2 px-5' variant='outline-success'>Log In With Google</Button>
-                        <Button className='my-2 px-5' variant='outline-success'>Log In With Github</Button>
+                        <Button onClick={handleGithubSignIn} className='my-2 px-5' variant='outline-success'>Log In With Github</Button>
                         <Form.Text className="text-danger">
                             {error}
                         </Form.Text>

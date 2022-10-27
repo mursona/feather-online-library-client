@@ -7,6 +7,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import RightSideNav from '../RightSideNav/RightSideNav';
+import Tooltip from 'react-bootstrap/Tooltip';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
 import './Header.css';
 
 const Header = () => {
@@ -31,6 +33,12 @@ const Header = () => {
             .catch(error => console.error(error))
     }
 
+    const renderTooltip = (props) => (
+        <Tooltip id="button-tooltip" {...props}>
+         {user?.displayName}
+        </Tooltip>
+      );
+
     return (
         <div>
             <Navbar expand="lg" className='mb-4 navbar'>
@@ -49,6 +57,7 @@ const Header = () => {
                     style={{ maxHeight: '100px' }}
                     navbarScroll
                 >
+                    <Link to='/researchfield' className='brandtext navlink mx-2 px-2 py-2'>Research</Link>
                     <Link to='/faq' className='brandtext navlink mx-2 px-2 py-2'>FAQ</Link>
                     <Link to='/blog' className='brandtext navlink mx-2 px-2 py-2'>Blog</Link>
                     <div className={`Header ${theme} bg-light border rounded-2`}>
@@ -60,10 +69,16 @@ const Header = () => {
                     {
                     user?.uid ?
                     <>  
-                        <Link to='/profile' className='mx-4 fw-semibold'>
+                        <Link to='/profile' className='mx-4 my-2 fw-semibold'>
                             {user?.displayName}
-                            <Image className='mx-2 rounded-circle profile-img' src={user?.photoURL}></Image>
                         </Link>
+                        <OverlayTrigger
+                        placement="right"
+                        delay={{ show: 250, hide: 400 }}
+                        overlay={renderTooltip}
+                        >
+                        <Image className='mx-2 rounded-circle profile-img' src={user?.photoURL}></Image>
+                        </OverlayTrigger>
                         <Button className='mx-2 py-0 my-0 bg-dark-violet'  variant="light" onClick={handleLogOut}>Log out</Button>
                     </>:
                     <>

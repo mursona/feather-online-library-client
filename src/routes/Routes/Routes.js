@@ -10,6 +10,9 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import UserProfile from "../../pages/UserProfile/UserProfile/UserProfile";
 import Faq from "../../pages/FAQ/Faq";
 import Blog from "../../pages/Blog/Blog";
+import ResearchArea from "../../pages/ResearhArea/ResearchArea";
+import CheckOut from "../../pages/Shared/CheckOut/CheckOut";
+import ErrorPage from "../../pages/ErrorPage/ErrorPage";
 
 export const routes = createBrowserRouter([
 
@@ -24,7 +27,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/field/:id',
-                element: <PrivateRoute><Field></Field></PrivateRoute>,
+                element: <Field></Field>,
                 loader: ({params}) => fetch(`https://learning-platform-server-side.vercel.app/field/${params.id}`)
             },
             {
@@ -32,6 +35,11 @@ export const routes = createBrowserRouter([
                 element: <Research></Research>,
                 loader: ({params}) =>fetch(`https://learning-platform-server-side.vercel.app/research/${params.id}`)
             },
+            {
+                path: '/researchfield',
+                element: <ResearchArea></ResearchArea>,
+                loader: () => fetch(`https://learning-platform-server-side.vercel.app/research/`)
+              },
             {
                 path: '/login',
                 element: <Login></Login>
@@ -49,6 +57,11 @@ export const routes = createBrowserRouter([
                 element: <PrivateRoute><UserProfile></UserProfile></PrivateRoute>
             },
             {
+                path : '/checkout/:id',
+                element : <PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
+                loader : ({params})=> fetch(`https://learning-platform-server-side.vercel.app/checkout/${params.id}`)
+              },
+            {
                 path: '/faq',
                 element: <Faq></Faq>
             },
@@ -58,6 +71,11 @@ export const routes = createBrowserRouter([
             }
 
         ]
-    }
+    },
+
+    {
+        path: "*",
+        element: <ErrorPage></ErrorPage>
+    },
 
 ])

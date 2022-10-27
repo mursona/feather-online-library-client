@@ -30,12 +30,6 @@ const RightSideNav = () => {
                 }
                 </li>
             </ul>
-
-            <ul className="list-unstyled CTAs">
-                <li>
-                    <a href="/" className="bg-violet text-center">Download source</a>
-                </li>
-            </ul>
         </nav>
     </div>
     );

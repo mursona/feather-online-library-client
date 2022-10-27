@@ -21,5 +21,5 @@ Description of project:
 
 [https://learning-platform-server-side.vercel.app/field/01](https://learning-platform-server-side.vercel.app/field/01)
 
-## [Client Side live link](https://classroom.github.com/a/-LAr0982)
-Click here for the private repo: [https://classroom.github.com/a/-LAr0982](https://classroom.github.com/a/-LAr0982)
+## [Client Side live link](https://feather-online-library.web.app/)
+Click here for the private repo: [https://feather-online-library.web.app/](https://feather-online-library.web.app/)
