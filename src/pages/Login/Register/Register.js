@@ -79,7 +79,7 @@ const Register = () => {
                           <Form.Label className="text-center">
                             Photo Url
                           </Form.Label>
-                          <Form.Control type="text" name="photoURL" placeholder="Enter Your FullName" />
+                          <Form.Control type="text" name="photoURL" placeholder="Enter Your PhotoUrl" />
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="formBasicEmail">
